@@ -1,0 +1,19 @@
+<div id="templates-edit" *ngIf="templateForm">
+    <div class="edit-left col-lg-2 col-md-12">
+        <app-templates-edit-toolbox
+        (onAddField)="addField($event)">
+        </app-templates-edit-toolbox>
+    </div>
+    <div class="edit-content col-lg-8 col-md-12">
+        <app-templates-edit-content         
+            [templateForm]="templateForm"
+            (onSelectField)="selectField($event)">
+        </app-templates-edit-content>
+    </div>
+    <div class="edit-right col-lg-2 col-md-12">
+        <app-templates-edit-property
+            [templateForm]="templateForm" 
+            [selectedField]="selectedField">
+        </app-templates-edit-property>
+    </div>                
+</div>

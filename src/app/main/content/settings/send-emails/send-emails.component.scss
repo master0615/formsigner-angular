@@ -1,0 +1,14 @@
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/dark.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+#send-emails{
+    .ngx-datatable.material .datatable-footer .page-count {
+        line-height: 20px;
+        height: auto;
+    }  
+    .datatable-header-cell-label {
+        color: black;
+    }
+}

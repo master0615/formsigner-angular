@@ -1,0 +1,68 @@
+<div id="signature-pad">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+            {{title}}
+        </div>
+        <div class="card-body">
+            <!-- <div class = "row">
+                <div class = "col-xl-3 align-middle">
+                    Your Sign Image:
+                </div>
+                <div class = "col-xl-9 text-center">
+                    <img alt="No Image" class="sign-image" 
+                    *ngIf = "signdata && signdata.path" 
+                    src="{{signdata.path}}" width="200" height="100">
+                </div>
+            </div> -->
+            <div class="row">
+                <div class="control-pad col-xl-3">
+                    <!-- <div class="form-group">
+                        <label for="labelWidth">Pen Width:</label>
+                        <select 
+                            class="form-control" 
+                            id="labelWidth"
+                            [(ngModel)]="penWidth" 
+                            (ngModelChange)="onChangeWidth($event)">
+                            <option *ngFor="let width of penWidths" [value]="width">{{width}}</option>                       
+                        </select>
+                    </div>       -->
+
+
+                    <button type="button" class="btn btn-primary form-btton" (click)="clear()">
+                        <i class="material-icons">clear_all</i> Clear
+                    </button>
+
+                    <button type="button" class="btn btn-primary form-btton" (click)="undo()">
+                        <i class="material-icons">undo</i> Undo
+                    </button>
+
+                    <button
+                        type="button" 
+                        class="btn btn-primary form-btton"
+                        type="text"
+                        [value]="color"
+                        [style.color]="!color"
+                        [style.background]="color"
+                        [cpPosition]="'right'"
+                        [cpPositionOffset]="'50%'"
+                        [cpPositionRelativeToArrow]="true"  
+                        readonly
+                        (colorPickerChange)="changeColor(color)"
+                        [(colorPicker)]="color">Color</button>
+
+                    <button type="button" class="btn btn-primary form-btton" (click)="save()">
+                        <i class="material-icons">save</i> Save
+                    </button>
+
+                </div>
+                <div class="text-center col-xl-9">
+                    <signature-pad 
+                        [(options)]="signaturePadOptions" 
+                        (onBeginEvent)="drawSignStart()" 
+                        (onEndEvent)="drawSignComplete()">
+                    </signature-pad>
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

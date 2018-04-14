@@ -1,0 +1,32 @@
+<div class="page-header header-filter" data-parallax="true">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="title text-center">SIGN FORMS ONLINE</h2>
+                    <h4 class="text-center">Sign legal forms with ease</h4>
+                    <!-- SEARCH -->
+                    <div class="input-group col-md-4 col-sm-10 ml-auto mr-auto">
+                        <input #searchInput type="text" class="form-control search-input" placeholder="Search for Anything" (keyup.enter)="updateFilter(searchInput.value)">
+    
+                        <button class="btn btn-primary btn-fab btn-fab-mini btn-round" (click)='updateFilter(searchInput.value)'>
+                            <i class="material-icons">search</i>
+                        </button>
+                        
+                    </div>
+                    <!-- / SEARCH -->                    
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main main-raised">
+        <div class="container">
+            <div class="section text-center">
+                <app-home-form-list></app-home-form-list>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <div class="container">
+        </div>
+    </footer>

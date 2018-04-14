@@ -1,0 +1,21 @@
+<div id="templates-edit-property">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+            {{ !selectedField ? "Form" : getLabelFromFieldTypeValue ( selectedField.type ) }} Property
+        </div>
+        <div class="card-body">
+            <app-templates-edit-property-form 
+                *ngIf="!selectedField"
+                [templateForm]="templateForm">
+
+            </app-templates-edit-property-form>
+
+            <app-templates-edit-property-field 
+                *ngIf="selectedField"
+                [templateForm]="templateForm"
+                [selectedField]="selectedField">
+            </app-templates-edit-property-field>
+
+        </div>
+    </div>
+</div>

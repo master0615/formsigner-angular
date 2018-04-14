@@ -1,0 +1,120 @@
+<div id="templates-edit-content" >
+    <ng-container *ngIf="templateForm && templateForm.files.length > 0 && this.isDataLoaded">
+        <ng-container *ngFor="let file of templateForm.files">
+
+        <div   
+            matchHeight="template-back-img"
+            (OnResizeElement)="Resizepage($event, file)"
+            class="card template-page" 
+            (contextmenu)="onRightClick($event, file)"
+            [contextMenu]="formMenu"            
+            (click)="selectPage($event, file)">
+            <img class="template-back-img"
+            [class.active]="file.img_data && file==selectedFile"
+            [src]="file.path"
+            (load)="getImageData($event, file)">
+
+            <div class="template-body"
+                [ngWidgetContainer]="containerConfig" 
+                (onItemChange)="changeFields($event)">
+
+                <div class="card-body template-form-content">
+                    <ng-container *ngFor="let field of file.fields">
+                        <app-templates-edit-field
+                            *ngIf="field.widget_config"
+                            [(ngWidget)]="field.widget_config"
+                            [templateForm]="templateForm"                     
+                            [field]="field"
+                            [isSelect]="selectedField==field"
+                            (onChangeStart)="changeStartField($event, file, field)"    
+                            (onChangeStop)="changeStopField($event, file, field)"
+                            (onChange)="changingField($event, file, field)"
+                            (onDragStop)="dragStopField($event, file, field)"
+                            (onResizeStop)="resizeStopField($event, file, field)"                     
+                            (click)="clickField($event, field)"
+                            [contextMenu]="fieldMenu"
+                            [contextMenuSubject]="field"
+
+                            (onRemoveField)="removeField($event)">
+                        </app-templates-edit-field>
+                    </ng-container>
+                </div>
+            </div>
+            <div *ngIf="selectedFile==file && selectedField">
+                <div 
+                    class="field-border-left" 
+                    [style.width.px]="ruleInfo.left"></div>
+                <div 
+                    class="field-border-right" 
+                    [style.left.px]="ruleInfo.right"></div>
+                <div 
+                    class="field-border-top"
+                    [style.height.px]="ruleInfo.top"></div>                
+                <div 
+                    class="field-border-bottom"
+                    [style.top.px]="ruleInfo.bottom"></div>
+            </div>
+        </div>
+
+        <div class="text-center small page-number" fxLayout="row" fxLayoutAlign="center center">
+            <i class="material-icons">keyboard_arrow_left</i> 
+                Page {{file.page_number}} / {{templateForm.pages}} 
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+
+       </ng-container>
+    </ng-container>
+
+    <!-- Form Menu -->
+    <context-menu #formMenu>
+
+        <ng-template contextMenuItem [subMenu]="addDataFieldMenu">
+            Add Data Field
+        </ng-template>
+        <context-menu #addDataFieldMenu>
+            <ng-template *ngFor="let item of addDataFieldItems" contextMenuItem (execute)="addFieldFromContextMenu($event, item)">
+                <i class="material-icons">{{item.icon}}</i> {{item.label}}
+            </ng-template>           
+        </context-menu>
+    
+        <ng-template contextMenuItem [subMenu]="addSignFieldMenu">
+            Add Sign Field
+        </ng-template>
+        <context-menu #addSignFieldMenu>
+            <ng-template *ngFor="let item of addSignFieldItems" contextMenuItem (execute)="addFieldFromContextMenu($event,item)">
+                <i class="material-icons">{{item.icon}}</i> {{item.label}}
+            </ng-template>
+        </context-menu>
+        <ng-template contextMenuItem [divider]="'true'"></ng-template>  
+
+        <ng-template 
+            contextMenuItem 
+            (execute)="clearAllFields()" 
+            [enabled]="selectedFile && selectedFile.fields.length > 0">
+                <i class="material-icons">clear_all</i> Clear All Fields
+        </ng-template>
+    
+        <ng-template 
+            contextMenuItem 
+            (execute)="pasteField()"
+            [enabled]="copyedField">
+                <i class="material-icons">content_paste</i> Paste
+        </ng-template>    
+    </context-menu>
+    <!--/ Form Menu -->
+    <!-- Field Menu -->
+    <context-menu  #fieldMenu>
+        <ng-template contextMenuItem let-item (execute)="selectField($event.item)">
+            <i class="material-icons">border_clear</i> Select
+        </ng-template>
+    
+        <ng-template contextMenuItem let-item (execute)="copyField($event.item)">
+            <i class="material-icons">content_copy</i> Copy
+        </ng-template>
+
+        <ng-template contextMenuItem let-item (execute)="removeField($event.item)">
+            <i class="material-icons">clear</i> Remove
+        </ng-template>
+    </context-menu> 
+    <!--/ Field Menu -->      
+</div>

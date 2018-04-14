@@ -1,0 +1,38 @@
+<div id="profile-photo-upload">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+            Upload photo
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="control-pad col-xl-12">
+
+                    <div class="photo-container">
+                        <img class="photo-image" [src]="isExistProfilePhoto() ? userProfilePhoto.path : defaultProfilePhoto">
+
+                        <div class="photo-buttons" fxLayout="row" fxLayoutAlign="space-between center">
+
+                            <button mat-icon-button (click)="rotateLeft()">
+                                <i class="material-icons">undo</i>
+                            </button>
+                    
+                            <button mat-icon-button (click)="rotateRight()">
+                                <i class="material-icons">redo</i>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <!-- ADD FILE BUTTON -->
+                    <div class="file-uploader">
+                        <input hidden type="file" #fileInput (change)="onUploadPhoto($event)" multiple/>
+                        <button type="button" class="btn btn-raised btn-round btn-default btn-file" (click)="fileInput.click()">
+                            <i class="material-icons">file_upload</i> Upload Image
+                        </button>
+                    </div>
+                    <!-- / ADD FILE BUTTON -->                    
+                </div>                
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div id="templates-view-content" >
+    <ng-container *ngIf="templateForm && templateForm.files.length > 0 && this.isDataLoaded">
+        <ng-container *ngFor="let file of templateForm.files">
+
+        <div  
+            matchHeight="template-back-img"
+            (OnResizeElement)="Resizepage($event, file)"
+            class="card template-page" >
+            <img class="template-back-img"
+            [src]="file.path"
+            (load)="getImageData($event, file)">
+
+            <div class="template-body"
+                [ngWidgetContainer]="containerConfig">
+
+                <div class="card-body template-form-content">
+
+                    <ng-container *ngFor="let field of file.fields">
+                        <app-templates-view-field
+                            *ngIf="field.widget_config"
+                            [(ngWidget)]="field.widget_config"
+                            [templateForm]="templateForm"                     
+                            [field]="field">
+                        </app-templates-view-field>
+                    </ng-container>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="text-center small page-number" fxLayout="row" fxLayoutAlign="center center">
+            <i class="material-icons">keyboard_arrow_left</i> 
+                Page {{file.page_number}} / {{templateForm.pages}} 
+            <i class="material-icons">keyboard_arrow_right</i>
+        </div>
+
+       </ng-container>
+    </ng-container>
+</div>

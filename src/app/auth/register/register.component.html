@@ -1,0 +1,95 @@
+<div id="register" class="page-header header-filter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-8 ml-auto mr-auto">
+                <div class="card card-signup">
+                    <form class="form" name="registerForm" [formGroup]="registerForm" novalidate (ngSubmit)="register()">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Sign Up</h4>
+                            <div class="social-line">
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>                  
+                        <div class="card-body">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">face</i>
+                                    </span>
+                                </div>
+                                <input type="text"  class="form-control" placeholder="First Name" formControlName="first_name">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                    </span>
+                                </div>
+                                <input type="text"  class="form-control" placeholder="Last Name" formControlName="last_name">
+                            </div>     
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                </div>
+                                <input type="email" class="form-control" placeholder="Email" formControlName="email">
+                            </div>
+
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password" formControlName="password">
+                            </div>
+                            
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">&nbsp;&nbsp;&nbsp;&nbsp;</i>
+                                    </span>
+                                </div>
+                                <input type="password" class="form-control" placeholder="Password (Confirm)" formControlName="confirm_password">
+                            </div> 
+
+                            <div class="input-group form-check">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox" formControlName="acceptTerm" required>
+                                    <span class="form-check-sign">
+                                        <span class="check"></span>
+                                    </span>
+                                    I agree to the
+                                    <a href="#something">terms and conditions</a>.
+                                </label>
+                            </div>                                                            
+                        </div>
+
+
+                        <div class="footer text-center">
+                            <button type="submit" class="btn btn btn-primary btn-fill" [disabled]="registerForm.invalid[disabled]="registerForm.invalid">Sign Up</button>
+                        </div>
+                        
+                    </form>
+                    <div class="footer text-center row">
+                        <div class="col-md-12">
+                            <span>Already have an account?</span>
+                            <a class="btn btn-primary btn-link" [routerLink]="'/home/login'">Login</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

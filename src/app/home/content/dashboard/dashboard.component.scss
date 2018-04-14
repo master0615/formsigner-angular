@@ -1,0 +1,29 @@
+:host {
+    .page-header{
+        background-image: url('/assets/images/backgrounds/form_hand.jpg');
+        height: auto;
+        margin-top:-20px;
+        height:320px;
+    }
+    .page-header:before {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        content: "";
+        background: #9c27b0;
+        opacity: .5;
+        z-index: 2;
+        left: 0;
+        top: 0;
+    }
+    .section{
+        min-height: 500px;
+        padding-top: 20px;
+    }
+    .search-input {
+        color: white;
+    }
+    ::placeholder {
+        color: lightgray;
+    }
+}

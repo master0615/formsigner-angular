@@ -1,0 +1,204 @@
+<div id="templates-list" class="list container-fluid">
+
+    <!-- HEADER -->
+    <div class="form-row mb-3">
+
+        <div class="col-md-4">
+
+            <!-- SEARCH -->
+            <div class="input-group">
+                <input #searchInput type="text" class="form-control" placeholder="Search for Anything" [formControl]="searchControl">
+
+                <button class="btn btn-primary btn-fab btn-fab-mini btn-round" (click)='updateFilter(searchInput.value)'>
+                    <i class="material-icons">search</i>
+                </button>
+                
+            </div>
+            <!-- / SEARCH -->
+
+        </div>
+        <div class = "col-md-8 text-right">
+            <button class="btn btn-primary" (click)="newTemplate()"><i class="material-icons">add</i> Create New Template</button>
+            <!-- <button type="button" class="btn btn-primary"><i class="material-icons">send</i> Send</button> -->
+        </div>
+    </div>
+    <!-- / HEADER -->
+    
+    <!-- CONTENT -->
+    <div class="row">
+        <div class = "col-md-12 m-6">
+            <!-- TABLE -->
+            <div *ngIf="templates" class="templates">
+    
+                <ngx-datatable 
+                    #table 
+                    class="material striped" 
+                    [rows]="templates" 
+                    [loadingIndicator]="loadingIndicator" 
+                    [columnMode]="'force'"
+                    [headerHeight]="48" 
+                    [footerHeight]="56" 
+                    [rowHeight]="'auto'" 
+                    [scrollbarH]="true" 
+                    [selectionType]="'checkbox'"
+                    [selectAllRowsOnPage]="true" 
+                    [selected]="selectedTemplates" 
+                    [reorderable]="reorderable" 
+                    [externalPaging]="true"
+                    [count]="total"
+                    [offset]="pageNumber"
+                    [limit]="pageSize"
+                    (page)="setPage($event)"
+                    (sort)="onSort($event)"
+                    (select)="onSelect($event)"
+                    (activate)="onActivate($event)">
+
+                    <ngx-datatable-column
+                        name="Photo"
+                        prop="thumb"
+                        [width]="100"
+                        [sortable]="false"
+                        [canAutoResize]="false">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <img class="avatar" [src]="row.thumb"/>
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column name="Name" prop="name">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <div matTooltip="{{row.description}}" [matTooltipPosition]="'below'">{{row.name}}</div>
+                        </ng-template>
+                    </ngx-datatable-column>
+                    
+                    <ngx-datatable-column name="Action"
+                        [width]="160"
+                        [sortable]="false" 
+                        [resizeable]="false" 
+                        [draggable]="false" 
+                        [cellClass]="row-action"
+                        [canAutoResize]="false">
+    
+                        <ng-template let-row="row" ngx-datatable-cell-template>
+                            <div class="action-buttons" fxFlex="1 0 auto">
+                                <button 
+                                    class="btn btn-info btn-fab btn-fab-mini btn-round" 
+                                    matTooltip="View" 
+                                    [matTooltipPosition]="'below'" 
+                                    (click)="viewTemplate(row)">
+                                    <i class="material-icons">laptop_mac</i>
+                                </button>
+
+                                <button 
+                                    class="btn btn-rose btn-fab btn-fab-mini btn-round"
+                                    matTooltip="Sign Form" 
+                                    [matTooltipPosition]="'below'" 
+                                    (click)="signupTemplate(row)">
+                                    <i class="material-icons">assignment</i>
+                                </button>
+                                                                
+                                <button *ngIf="currentUser.id==row.user_id"
+                                    class="btn btn-success btn-fab btn-fab-mini btn-round" 
+                                    matTooltip="Edit" 
+                                    [matTooltipPosition]="'below'"                                     
+                                    (click)="editTemplate(row)">
+                                    <i class="material-icons">mode_edit</i>
+                                </button>                                
+
+                                <button *ngIf="currentUser.id==row.user_id" 
+                                    class="btn btn-danger btn-fab btn-fab-mini btn-round" 
+                                    matTooltip="Delete" 
+                                    [matTooltipPosition]="'below'" 
+                                    (click)="removeTemplate(row)">
+                                    <i class="material-icons">delete</i>
+                                </button>
+                            </div>
+                        </ng-template>
+    
+                    </ngx-datatable-column>
+                
+                    <ngx-datatable-column                     
+                        [width]="150"
+                        [sortable]="false"
+                        [canAutoResize]="false"
+                        [draggable]="false"
+                        [resizeable]="false"
+                        [headerCheckboxable]="true" 
+                        name="Author" 
+                        prop="author">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            {{row.user_name}}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column 
+                        [width]="120"
+                        [canAutoResize]="false"
+                        [draggable]="false"
+                        [resizeable]="false"
+                        [headerCheckboxable]="true"
+                        name="Updated At" 
+                        prop="updated_at">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            {{row.updated_at | date:mediumDate}}
+                        </ng-template>
+                    </ngx-datatable-column>
+
+                    <ngx-datatable-column
+                        [width]="120"
+                        [canAutoResize]="false"
+                        [draggable]="false"
+                        [resizeable]="false"
+                        [headerCheckboxable]="true"                     
+                        name="Created At" 
+                        prop="created_at">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            {{row.created_at| date:mediumDate}}
+                        </ng-template>
+                    </ngx-datatable-column>
+                    
+                    <ngx-datatable-footer>
+                        <ng-template ngx-datatable-footer-template
+                                        let-rowCount="rowCount"
+                                        let-pageSize="pageSize"
+                                        let-selectedCount="selectedCount"
+                                        let-curPage="curPage"
+                                        let-offset="offset">
+                            <div class="page-count h-60">
+                                Show
+                                    <select class="footer-pages" (change)="onPageLengthChange($event.target.value)" [value]="pageSize">
+                                        <option *ngFor="let item of pageLengths" [ngValue]="item">{{item}}</option>
+                                    </select>
+
+                                entries
+                                <span class="mx-48" *ngIf="rowCount!=1">
+                                    Showing {{pageSize * offset + 1}} to {{min(pageSize * (offset + 1), rowCount)}} of {{rowCount}} forms
+                                </span>
+
+                                <span class="mx-48" *ngIf="rowCount==1">
+                                    Showing 1 form
+                                </span>                                
+                            </div>
+                            <datatable-pager [pagerLeftArrowIcon]="'datatable-icon-left'"
+                                                [pagerRightArrowIcon]="'datatable-icon-right'"
+                                                [pagerPreviousIcon]="'datatable-icon-prev'"
+                                                [pagerNextIcon]="'datatable-icon-skip'"
+                                                [page]="curPage"
+                                                [size]="pageSize"
+                                                [count]="rowCount"
+                                                [hidden]="!((rowCount / pageSize) > 1)"
+                                                (change)="setPage($event)">
+                            </datatable-pager>
+                        </ng-template>
+                    </ngx-datatable-footer>                    
+                </ngx-datatable>
+
+
+            </div>
+            <!-- / TABLE -->
+    
+
+        </div>
+        <!-- CONTENT -->
+    </div>
+</div>
+ 

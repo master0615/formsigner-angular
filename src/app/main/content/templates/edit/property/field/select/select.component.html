@@ -1,0 +1,37 @@
+<div id="property-select" class="property-group">
+    <div class="card-title" role="tab" id="select-property-card">
+        <div class="mb-0 groups-item" FlexLayout="row" fxLayoutAlign="space-around center">
+            <a data-toggle="collapse" href="#select-property" aria-expanded="true" aria-controls="collapseOne">
+                Dropdown Property
+                <i class="material-icons">keyboard_arrow_down</i>
+            </a>
+        </div>
+    </div>
+    <div id="select-property" class="collapse show" role="tabpanel" aria-labelledby="select-property-card">
+        <div class="form-group">
+            <div *ngFor="let option of options" class="input-group">
+                <input type="text" class="form-control" readonly [ngModel]="option">
+                <span class="input-group-btn">
+                    <button 
+                        type="button" 
+                        class="btn btn-fab btn-fab btn-fab-mini btn-round btn-link"
+                        (click)="deleteOption(option)">
+                        <i class="material-icons">close</i>
+                    </button>
+                </span>
+            </div>
+
+            <div class="input-group">
+                <input #optionInput type="text" class="form-control" placeholder="Input Select Option">
+                <span class="input-group-btn">
+                    <button 
+                        type="button" 
+                        class="btn btn-primary btn-fab btn-fab-mini btn-round"
+                        (click)="addOption(optionInput.value)">
+                        <i class="material-icons">add</i>
+                    </button>
+                </span>
+            </div>
+        </div>
+    </div>
+</div>

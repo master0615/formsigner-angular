@@ -1,0 +1,56 @@
+#create-template{
+    // max-width:500px;
+    img {
+        height: 140px;
+        width:auto;
+        cursor: pointer;
+    }
+    .page-info {
+        position: absolute;
+        top:15px;
+        //height: 20px;
+        width: calc(100% - 20px);
+        line-height: 14px;
+        font-weight: bold;
+        text-align: center;
+        cursor: pointer;
+    }
+    .handle-remove {
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        color: black;
+        font-size: 12px;
+        cursor: pointer;
+        opacity: 0.50;
+    }
+
+    .ngx-dnd-container {
+        border: 2px dotted #0782d0;
+        border-radius: 5px;
+        width: 100%;
+        height:180px;
+        overflow-x: auto;
+        overflow-y: hidden;
+        box-sizing: border-box;
+        padding:10px;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+
+        .ngx-dnd-item{
+            margin: 0 5px;
+            border:1px dotted gray;
+            position: relative;
+
+        }
+        .ngx-dnd-item.gu-transit,
+        .ngx-dnd-item:hover  {
+          border: 1px solid #9c27b0
+        }
+    }
+}
+.ngx-dnd-item.ng-star-inserted.gu-mirror{
+    //display: none;
+    height: 140px;
+    width: auto;
+}

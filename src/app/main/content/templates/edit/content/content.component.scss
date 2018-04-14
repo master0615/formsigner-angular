@@ -1,0 +1,82 @@
+
+#templates-edit-content{
+    //height: 100%;
+    //overflow: auto;
+    //width: 100%;
+
+    .mwlResizable {
+        box-sizing: border-box; // required for the enableGhostResize option to work
+    }
+
+    .template-page{
+        //display: block;
+        position: relative;
+        width:100%;
+        border-radius: 0;
+        img{
+            width:100%;
+            position: absolute;
+            top:0px;        
+        }
+
+        .template-back-img{
+            width:100%;
+            position: absolute;
+            top:0px;
+
+            &.active{
+                border:1px solid #7b1fa2;
+            }            
+        }
+    }
+    .field-border-left,
+    .field-border-right,
+    .field-border-top,
+    .field-border-bottom{
+        position: absolute;
+        border: none;
+        z-index: 0;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    .field-border-left {
+        border-right: 1px solid gray;
+    }
+
+    .field-border-right {
+        border-left: 1px solid gray;
+    }
+
+    .field-border-top {
+        border-bottom: 1px solid gray;
+    }
+
+    .field-border-bottom {
+        border-top: 1px solid gray;
+    }
+
+    .page-number{
+        margin-top:-20px;
+    }
+
+    .widget-container {
+        position: relative;
+    }
+     
+    .widget {
+        position: absolute;
+        top:100px;
+        left:100px;
+    }
+     
+    .widget.moving {
+        z-index: z-index + 1;
+    }
+     
+    .widget-placeholder {
+        position: absolute;
+    }
+}

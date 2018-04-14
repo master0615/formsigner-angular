@@ -1,0 +1,18 @@
+:host{
+    position: relative;
+    #property-radio{
+
+        padding:10px;
+        border-radius: 4px;
+        border: 1px solid #AEAEAE;
+        margin-bottom: 20px;
+
+        label{
+            color: black;
+        }
+
+        .groups-item{
+            border-bottom: 1px solid #3C4858;
+        }
+    }
+}

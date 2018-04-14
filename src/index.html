@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Formsigner.net - Sign legal forms with ease</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" href="assets/css/material-kit.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
+  <style type="text/css">
+    .lds-css {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100vh;
+    }
+    @keyframes lds-spinner {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    @-webkit-keyframes lds-spinner {
+      0% {
+        opacity: 1;
+      }
+      100% {
+        opacity: 0;
+      }
+    }
+    .lds-spinner {
+      position: relative;
+    }
+    .lds-spinner div {
+      left: 94px;
+      top: 48px;
+      position: absolute;
+      -webkit-animation: lds-spinner linear 1.7s infinite;
+      animation: lds-spinner linear 1.7s infinite;
+      background: #9c27b0;
+      width: 12px;
+      height: 24px;
+      border-radius: 40%;
+      -webkit-transform-origin: 6px 52px;
+      transform-origin: 6px 52px;
+    }
+    .lds-spinner div:nth-child(1) {
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+      -webkit-animation-delay: -1.558333333333333s;
+      animation-delay: -1.558333333333333s;
+    }
+    .lds-spinner div:nth-child(2) {
+      -webkit-transform: rotate(30deg);
+      transform: rotate(30deg);
+      -webkit-animation-delay: -1.416666666666667s;
+      animation-delay: -1.416666666666667s;
+    }
+    .lds-spinner div:nth-child(3) {
+      -webkit-transform: rotate(60deg);
+      transform: rotate(60deg);
+      -webkit-animation-delay: -1.275s;
+      animation-delay: -1.275s;
+    }
+    .lds-spinner div:nth-child(4) {
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+      -webkit-animation-delay: -1.133333333333333s;
+      animation-delay: -1.133333333333333s;
+    }
+    .lds-spinner div:nth-child(5) {
+      -webkit-transform: rotate(120deg);
+      transform: rotate(120deg);
+      -webkit-animation-delay: -0.991666666666667s;
+      animation-delay: -0.991666666666667s;
+    }
+    .lds-spinner div:nth-child(6) {
+      -webkit-transform: rotate(150deg);
+      transform: rotate(150deg);
+      -webkit-animation-delay: -0.85s;
+      animation-delay: -0.85s;
+    }
+    .lds-spinner div:nth-child(7) {
+      -webkit-transform: rotate(180deg);
+      transform: rotate(180deg);
+      -webkit-animation-delay: -0.708333333333333s;
+      animation-delay: -0.708333333333333s;
+    }
+    .lds-spinner div:nth-child(8) {
+      -webkit-transform: rotate(210deg);
+      transform: rotate(210deg);
+      -webkit-animation-delay: -0.566666666666667s;
+      animation-delay: -0.566666666666667s;
+    }
+    .lds-spinner div:nth-child(9) {
+      -webkit-transform: rotate(240deg);
+      transform: rotate(240deg);
+      -webkit-animation-delay: -0.425s;
+      animation-delay: -0.425s;
+    }
+    .lds-spinner div:nth-child(10) {
+      -webkit-transform: rotate(270deg);
+      transform: rotate(270deg);
+      -webkit-animation-delay: -0.283333333333333s;
+      animation-delay: -0.283333333333333s;
+    }
+    .lds-spinner div:nth-child(11) {
+      -webkit-transform: rotate(300deg);
+      transform: rotate(300deg);
+      -webkit-animation-delay: -0.141666666666667s;
+      animation-delay: -0.141666666666667s;
+    }
+    .lds-spinner div:nth-child(12) {
+      -webkit-transform: rotate(330deg);
+      transform: rotate(330deg);
+      -webkit-animation-delay: 0s;
+      animation-delay: 0s;
+    }
+    .lds-spinner {
+      width: 200px !important;
+      height: 200px !important;
+      -webkit-transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+      transform: translate(-100px, -100px) scale(1) translate(100px, 100px);
+    }
+  </style>
+</head>
+<body>
+  <app-root>
+      <div class="lds-css">
+        <div class="lds-spinner">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+  </app-root>
+</body>
+<!--   Core JS Files   -->
+<script src="assets/js/core/jquery.min.js"></script>
+<script src="assets/js/core/popper.min.js"></script>
+<script src="assets/js/bootstrap-material-design.js"></script>
+
+<!-- Plugin for Date Time Picker and Full Calendar Plugin-->
+<script src="assets/js/plugins/moment.min.js"></script>
+
+<!-- Plugin for Select, full documentation here: http://silviomoreto.github.io/bootstrap-select -->
+<script src="assets/js/plugins/bootstrap-selectpicker.js"></script>
+
+<!-- Plugin for Tags, full documentation here: http://xoxco.com/projects/code/tagsinput/  -->
+<script src="assets/js/plugins/bootstrap-tagsinput.js"></script>
+
+<!-- Plugin for Fileupload, full documentation here: http://www.jasny.net/bootstrap/javascript/#fileinput -->
+<script src="assets/js/plugins/jasny-bootstrap.min.js"></script>
+
+<!-- Plugin for Small Gallery in Product Page -->
+<script src="assets/js/plugins/jquery.flexisel.js"></script>
+
+<!-- Plugin for the Datepicker, full documentation here: https://github.com/Eonasdan/bootstrap-datetimepicker -->
+<script src="assets/js/plugins/bootstrap-datetimepicker.min.js"></script>
+
+<!-- Plugin for the Sliders, full documentation here: http://refreshless.com/nouislider/ -->
+<script src="assets/js/plugins/nouislider.min.js"></script>
+
+<!-- Material Kit Core initialisations of plugins and Bootstrap Material Design Library -->
+<script src="assets/js/material-kit.js?v=2.0.0"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-114916507-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-114916507-1');
+</script>
+
+</html>

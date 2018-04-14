@@ -1,0 +1,62 @@
+
+<div id="templates-edit-property-form" class="toolbox">
+    <div class="property-group">
+        <div class="card-title" role="tab" id="general-property-card">
+            <div class="mb-0 groups-item" FlexLayout="row" fxLayoutAlign="space-around center">
+                <a data-toggle="collapse" href="#general-property" aria-expanded="true" aria-controls="collapseOne">
+                    Property
+                    <i class="material-icons">keyboard_arrow_down</i>
+                </a>
+            </div>
+        </div>
+        <div id="general-property" class="collapse show group-body" role="tabpanel" aria-labelledby="general-property-card">
+            <div class="form-group">
+                <label for="input_name">Name (Optional)</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="input_name"
+                    [(ngModel)]="templateForm.name"               
+                    placeholder="Enter Name" >
+            </div>
+
+            <div class="form-group">
+                <label for="input_description">Description (Optional)</label>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    id="input_description"
+                    [(ngModel)]="templateForm.description"
+                    placeholder="Enter Description">
+            </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" [(ngModel)]="templateForm.share_all" type="checkbox">
+                    Share All
+                    <span class="form-check-sign">
+                        <span class="check"></span>
+                    </span>
+                </label>
+            </div>            
+        </div>
+    </div>
+
+
+    <button type="button" class="btn btn-primary form-btton" (click)="save()"><i class="material-icons">save</i> Save</button>
+    <button type="button" class="btn btn-primary form-btton" (click)="sendPDF()"><i class="material-icons">send</i> Send</button>
+
+    <div class="btn-group">
+        <button type="button" class="btn btn-danger dropdown-toggle form-btton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            More Action
+        </button>
+        <div class="dropdown-menu">
+            <a class="dropdown-item" (click)="saveAndClose()"><i class="material-icons">archive</i> Save And Close</a>
+            <a class="dropdown-item" (click)="delete()"><i class="material-icons">delete</i> Delete</a>
+            <a class="dropdown-item" (click)="replaceNewFile()"><i class="material-icons">file_upload</i> Replace With New File</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="downloadPdf()"><i class="material-icons">picture_as_pdf</i> Download PDF</a>
+            <!-- <a class="dropdown-item" (click)="saveAs()"><i class="material-icons">content_copy</i> Save As</a>             -->
+        </div>
+    </div>    
+</div>

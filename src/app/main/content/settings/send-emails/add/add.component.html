@@ -1,0 +1,27 @@
+<div class="new-email">
+
+	<button *ngIf="!formActive" class="btn btn-primary" (click)="openForm()">
+			<i class="material-icons">add</i> Add New Email
+	</button>
+
+	<form 
+		*ngIf="formActive" 
+		class="new-email-form form-inline ml-auto" 
+		[formGroup]="form" 
+		(submit)="onFormSubmit()" 
+		fxLayout="row" 
+		fxLayoutAlign="end center"
+		fxLayoutGap="10px">
+
+		<div class="input-group">
+			<input #emailInput type="email" class="form-control" formControlName="email" placeholder="Write a Email Address" required>
+		</div>
+
+		<button type="submit" class="close">
+			<i class="material-icons">check</i>
+		</button>
+		<button type="button" class="close" (click)="closeForm()">
+			<i class="material-icons">close</i>
+		</button>
+	</form>
+</div>

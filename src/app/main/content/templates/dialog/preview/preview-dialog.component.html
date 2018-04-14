@@ -1,0 +1,31 @@
+<div class="dialog-content-wrapper">
+    
+    <div mat-dialog-content class="p-24 m-0">
+        <img *ngIf="photos[index].path" 
+            [src]="photos[index].path"
+            (load)="onLoadedImg()">
+    </div>
+
+    <div mat-dialog-actions class="m-0 p-24"  fxLayout="row" fxLayoutAlign="space-between center">
+        <div fxLayout="row" fxLayoutAlign="center center">
+
+
+            <button 
+                class="btn btn-primary btn-fab btn-fab-mini btn-round"
+                [disabled]="index<=0"                                  
+                (click)="onPrev()">
+                <i class="material-icons">arrow_back</i>
+            </button>
+
+            <div class="index px-8">{{index + 1}} / {{photos.length}}</div>
+
+            <button 
+                class="btn btn-primary btn-fab btn-fab-mini btn-round"  
+                [disabled]="index>=this.photos.length-1"                                
+                (click)="onNext()">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </div>
+        <div class="pr-8">Uploaded {{photos[index].created_at | date: 'medium'}}</div>
+    </div>
+</div>

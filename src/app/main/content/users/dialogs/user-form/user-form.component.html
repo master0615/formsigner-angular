@@ -1,0 +1,74 @@
+<div id="user-form-dialog">
+        <h4 matDialogTitle class="modal-title">Create a New User</h4>
+        <div class="modal-body">
+            <div class="form-row pt-2" name="userForm" [formGroup]="userForm" novalidate>
+                <div class="form-group col-md-6">
+                    <label for="firstName" class="bmd-label-floating">First Name:</label>
+                    <input type="text" class="form-control" id="firstName" formControlName="first_name" placeholder="Enter first name">
+                    <show-errors [control]="userForm.controls.first_name"></show-errors>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="lastName">Last Name:</label>
+                    <input type="text" class="form-control" id="lastName" formControlName="last_name" placeholder="Enter last name">
+                    <show-errors [control]="userForm.controls.last_name"></show-errors>
+                </div>        
+
+                <div class="form-group col-md-12">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter email">
+                    <show-errors [control]="userForm.controls.email"></show-errors>
+                </div> 
+
+                <div class="form-group col-md-6">
+                        <label for="role">Role</label><br>
+                        <div *ngFor="let userRole of USER_ROLES" class="form-check form-check-radio form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" formControlName="role" name="role" [value]="userRole.value" checked="checked"> 
+                                    {{userRole.label}}
+                                <span class="circle">
+                                    <span class="check"></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        <label for="role">Active</label><br>
+                        <div *ngFor="let userActive of USER_ACTIVIES" class="form-check form-check-radio form-check-inline">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="radio" formControlName="active" name="active" [value]="userActive.value" checked="checked"> 
+                                    {{userActive.label}}
+                                <span class="circle">
+                                    <span class="check"></span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                <div class="form-group col-md-6">
+                    <label for="password">Password:</label>
+                    <input type="password" class="form-control" id="passowrd" formControlName="password" placeholder="Enter password">
+                    <show-errors [control]="userForm.controls.password"></show-errors>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" class="form-control" id="confirm_password" formControlName="confirm_password" placeholder="Enter confirm password">
+                    <show-errors [control]="userForm.controls.confirm_password"></show-errors>
+                </div>
+
+                <show-errors [control]="userForm"></show-errors>
+               
+
+                <div mat-dialog-actions class="col-md-12 pt-24">
+                    <div class="col-md-12 text-center">
+                        <button type="submit" class="btn btn-primary" (click)="create()" [disabled]="userForm.invalid"><i class="material-icons">file_upload</i> Create</button>
+                        <button type="button" class="btn btn-primary" (click)="dialogRef.close(false)"><i class="material-icons">arrow_back</i> Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    

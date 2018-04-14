@@ -1,0 +1,36 @@
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/themes/dark.css';
+@import '~@swimlane/ngx-datatable/release/themes/bootstrap.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+#templates-list{
+    padding-top:20px;
+    .action-buttons{
+        margin-top: -10px;
+    }
+    .row-action{
+        padding: 0;
+    }
+    .avatar{
+        width:50px;
+        height: 50px;
+    }
+    .ngx-datatable.material .datatable-footer .page-count {
+        line-height: 20px;
+        height: auto;
+    }
+}
+
+
+.datatable-checkbox input[type='checkbox'] {
+    &:after, &:before {
+        width: 16px;
+        height: 16px;
+    }
+
+    &:checked:before {
+        height: 8px;
+    }
+}
+  

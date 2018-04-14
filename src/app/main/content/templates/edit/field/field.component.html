@@ -1,0 +1,136 @@
+<div id="templates-edit-field" 
+    [class.active]="isSelect"
+    [class.firstActive]="isFirstActiveField(field, isSelect)"
+    [class.mantdatory]="field.is_mandatory"> 
+
+    <div class="handle-remove fa fa-remove" title="Remove" (click)="removeField()"></div>
+    <!--- Form data for builder -->
+    <input *ngIf="field.type==FormFieldType.DATA_TEXT" 
+        #inputEl
+        class="drag-text-field"
+        [readonly]="!isSelect" 
+        [(placeholder)]="field.name"
+        [(ngModel)]="field.value" 
+        maxlength="{{field.length}}"
+        (dblclick)="editField()" />
+
+    <textarea *ngIf="field.type==FormFieldType.DATA_TEXT_BOX" 
+        #textEl
+        class="drag-textarea-field"
+        [readonly]="!isSelect" 
+        [(placeholder)]="field.name"
+        maxlength="{{field.length}}"        
+        [(ngModel)]="field.value"         
+        (dblclick)="editField()" ></textarea>
+
+    <div *ngIf="field.type==FormFieldType.DATA_DATE" class="drag-date-field">
+        <input 
+            #dateEl 
+            [ngModel]="setStringAsDateFormat(field)" 
+            class="drag-date-field-input" 
+            (dblclick)="editField()" 
+            [(placeholder)]="field.name" >
+        <input 
+            [owlDateTimeTrigger]="ddt"
+            [owlDateTime]="ddt"
+            readonly
+            class="drag-date-field-hidden"
+            [(ngModel)]="field.value" >
+        <span class="trigger" [owlDateTimeTrigger]="ddt" [disabled]="!isSelect">
+            <i class="material-icons">today</i>
+        </span>
+        <owl-date-time #ddt [pickerType]="setDtPickerType(field.date_format)" [disabled]="!isSelect"></owl-date-time>     
+    </div>
+
+    <mat-checkbox
+        *ngIf="field.type==FormFieldType.DATA_CHECK_BOX" 
+        #checkboxEl
+        class="drag-checkbox-field"
+        [ngModel]= "field.value"    
+        [disabled]="!isSelect || !isEdit" 
+        [disableRipple]="'true'"
+        (click)="editField()"
+        (change)="changeCheckbox($event)">
+    </mat-checkbox>
+
+    <mat-radio-group 
+        *ngIf="field.type==FormFieldType.DATA_RADIO"
+        [(ngModel)]="field.value">
+        <mat-radio-button            
+            #radioEl
+            class="drag-checkbox-field"
+            [value]="'1'"
+            [disabled]="!isSelect || !isEdit" 
+            [disableRipple]="'true'"
+            (click)="editField()">
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <mat-select 
+        *ngIf="field.type==FormFieldType.DATA_SELECT" 
+        #selectEl
+        class="drag-select-field"
+        [disabled]="!isSelect"
+        [(ngModel)]="field.value"        
+        (dblclick)="editField()"  
+        [(placeholder)]="field.name" >
+        <mat-option *ngFor="let option of getSelectOptionsFromField(field)" [value]="option">{{option}}</mat-option>
+    </mat-select>        
+    <!--- /Form data for builder -->
+
+    <!--- Form sign data for builder -->
+    <div *ngIf="field.type==FormFieldType.SIGN_INITIAL">
+        <img class="drag-draw-sign-field" 
+            *ngIf="field.sign_path" 
+            [src]="field.sign_path"
+            (load)="getImageData($event, field)">
+    </div>
+
+    <div *ngIf="field.type==FormFieldType.SIGN_DRAW">
+        <img class="drag-daw-initial-field" 
+            *ngIf="field.sign_path" 
+            [src]="field.sign_path"
+            (load)="getImageData($event, field)">
+    </div>
+
+    <input *ngIf="field.type==FormFieldType.SIGN_NAME" 
+        #signNameEl
+        class="drag-text-field"
+        [readonly]="!isSelect" 
+        [(placeholder)]="field.name"
+        [(ngModel)]="field.value"         
+        (dblclick)="editField()" />
+        
+    <input *ngIf="field.type==FormFieldType.SIGN_EMAIL" 
+        #signEmailEl
+        type="email"
+        class="drag-text-field"
+        [readonly]="!isSelect" 
+        [(placeholder)]="field.name"
+        [(ngModel)]="field.value"         
+        (dblclick)="editField()" />
+        
+
+    <div *ngIf="field.type==FormFieldType.SIGN_DATE" class="drag-date-field">
+        <input 
+            #signDateEl 
+            [ngModel]="setStringAsDateFormat(field)" 
+            class="drag-date-field-input" 
+            (dblclick)="editField()" 
+            [(placeholder)]="field.name" >
+        <input 
+            [owlDateTimeTrigger]="sdt"
+            [owlDateTime]="sdt"
+            readonly
+            class="drag-date-field-hidden"
+            [(ngModel)]="field.value" >
+        <span class="trigger" [owlDateTimeTrigger]="sdt" [disabled]="!isSelect">
+            <i class="material-icons">today</i>
+        </span>
+        <owl-date-time #sdt [pickerType]="setDtPickerType(field.date_format)" [disabled]="!isSelect"></owl-date-time>
+    </div>         
+         
+    <!--- /Form sign data for builder -->
+    
+    <div class="handle-resize" #resizeHandle (mousedown)="mousedownResize($event)"></div>    
+</div>

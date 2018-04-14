@@ -1,0 +1,22 @@
+<div id="property-text" class="property-group">
+    <div class="card-title" role="tab" id="text-property-card">
+        <div class="mb-0 groups-item" FlexLayout="row" fxLayoutAlign="space-around center">
+            <a data-toggle="collapse" href="#text-property" aria-expanded="true" aria-controls="collapseOne">
+                Text Property
+                <i class="material-icons">keyboard_arrow_down</i>
+            </a>
+        </div>
+    </div>
+    <div id="text-property" class="collapse show" role="tabpanel" aria-labelledby="text-property-card">
+        <div class="form-group">
+            <label for="input_text_length">Max Length (optional)</label>
+            <input type="number" 
+            [(ngModel)]="selectedField.length"
+            (input)="changeTextMaxLength($event)"
+            class="form-control" 
+            id="input_text_length" 
+            placeholder="Enter max length of text.">
+        </div>
+    </div>  
+</div>                  
+

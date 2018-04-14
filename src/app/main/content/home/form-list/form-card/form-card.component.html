@@ -1,0 +1,22 @@
+<div class="card card-product">
+    <div class="card-header card-header-image">
+        <a (click)="clickSign(template)">
+            <img class="form-card-img" [src]="template.thumb">
+        </a>
+    </div>
+    <div class="card-body">
+        <!-- <h6 class="card-category text-rose">Popular</h6> -->
+        <h4 class="card-title">
+            <a (click)="clickSign(template)">{{template.name}} - {{template.pages}} {{template.pages == 1 ? 'page' : 'pages'}}</a>
+        </h4>
+        <div class="card-description">{{template.description}}</div>
+    </div>
+    <div class="card-footer justify-content-between">
+        <div class="price">
+            <button type="button" (click)="clickSign(template)" class="btn btn-sm btn-primary">Sign</button>
+        </div>
+        <div class="stats">
+            <button type="button" (click)="clickPreview(template)" class="btn btn-sm btn-success">Preview</button>
+        </div>
+    </div>
+</div>

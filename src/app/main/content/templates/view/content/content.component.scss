@@ -1,0 +1,49 @@
+
+#templates-view-content{
+    //height: 100%;
+    //overflow: auto;
+    //width: 100%;
+
+    .mwlResizable {
+        box-sizing: border-box; // required for the enableGhostResize option to work
+    }
+
+    .template-page{
+        //display: block;
+        position: relative;
+        width:100%;
+        border-radius: 0;
+        box-sizing: border-box;
+        &.active{
+            border:1px solid #7b1fa2;
+        }
+        img{
+            width:100%;
+            //height: auto;
+            position: absolute;
+            top:0px;
+            //height: auto;
+        }
+    }
+    .page-number{
+        margin-top:-20px;
+    }
+
+    .widget-container {
+        position: relative;
+    }
+     
+    .widget {
+        position: absolute;
+        top:100px;
+        left:100px;
+    }
+     
+    .widget.moving {
+        z-index: z-index + 1;
+    }
+     
+    .widget-placeholder {
+        position: absolute;
+    }
+}

@@ -1,0 +1,30 @@
+
+:host {
+    //position: relative;
+    display: flex;
+    flex: 0 0 auto;
+    z-index: 100;
+    position: sticky;
+    top: 0;
+    
+    #main-toolbar{
+        width:100%;
+        border-radius: 0;
+        padding:10px 27px;
+  
+        .nav-item{
+            cursor: pointer;
+        }
+        .dropdown-menu{
+            left:auto;
+            top:auto;
+        }
+
+        .profile-thumb-image{
+            width:30px;
+            height: 30px;
+            border-radius: 50%;
+        }
+    }
+
+}

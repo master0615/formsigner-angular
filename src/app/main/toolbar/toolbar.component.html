@@ -1,0 +1,32 @@
+<nav id="main-toolbar" class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar" *ngIf="currentUser?.provider_name != 'staffconnect'">
+    <div class="navbar-translate">
+        <div>
+            <img src="assets/images/logos/logo_horiz_60.png">
+        </div>
+    </div>
+    <div class="navbar-nav-scroll ml-md-auto">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+
+            <li *ngFor="let menu of menus" (click)="clickMenu(menu)" routerLinkActive="active" [class.active]="menu==selectedMenu" class="nav-item">
+                <a *ngIf="isShowMenu(menu)" class="nav-link" [routerLink]="menu.url">
+                    <i class="material-icons">{{menu.icon}}</i>
+                    {{menu.title}}
+                    <div class="ripple-container"></div>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link dropdown-toggle" id="navbarUserDropDown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="profile-thumb-image" [src]="isExistProfilePhoto() ? currentUserPhoto.thumb : defaultProfilePhoto">                    
+                    <span *ngIf="currentUser">{{ currentUser.first_name + " " + currentUser.last_name }}</span>
+                    <div class="ripple-container"></div>
+                </a>
+
+                <div class="dropdown-menu" aria-labelledby="navbarUserDropDown">
+                    <a class="dropdown-item" (click)="profile()">My profile</a>
+                    <a class="dropdown-item" (click)="logout()">Log out</a>
+                </div>
+            </li>               
+        </ul>
+    </div>
+</nav>

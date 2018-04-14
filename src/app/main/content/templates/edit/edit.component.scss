@@ -1,0 +1,40 @@
+:host {
+    #templates-edit {
+        display: flex;
+        .edit-left{
+            // width: 200px;
+            // position: fixed;
+            // top: 100px;
+            // left: 10px;
+            // height: calc(100vh - 120px);
+        }
+        .edit-content{
+            // padding-left: 220px;
+            // width: calc(100% - 260px);
+            overflow: auto;
+            height: calc(100vh - 20px);
+        }
+        .edit-right{
+            // width: 240px;
+            // position: fixed;
+            // top: 100px;
+            // right: 10px;
+            // height: calc(100vh - 160px);            
+        }
+    }
+
+    @media (max-width: 991px) { 
+        #templates-edit {
+            display: block;
+            .edit-left,
+            .edit-content,
+            .edit-right{
+                //padding:0 10px;                
+                //width: 100%;
+                //height:100%;
+                //position: initial;  
+                display: block;         
+            }
+        }
+    }
+}

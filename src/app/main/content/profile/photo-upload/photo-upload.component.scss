@@ -1,0 +1,34 @@
+:host {
+    #profile-photo-upload {
+        .photo-image {
+            width:100%;
+            height: 100%;
+            //max-width: 200px;
+            //max-height: 200px;
+        }
+        .photo-container{
+            position: relative;
+        }
+        .btn-file {
+            width: 100%;
+        }
+        .photo-buttons {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            padding: 0 16px;
+            height: 48px;
+            line-height: 48px;
+            background: rgba(0, 0, 0, 0.54);
+            color: #FFF;
+            font-size: 15px;
+
+            i {
+                cursor: pointer;
+                color: #FFF;
+            }
+        }
+    }
+}

@@ -1,0 +1,60 @@
+<div id="login" class="page-header header-filter">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-sm-8 ml-auto mr-auto">
+                <div class="card card-signup">
+                    <form class="form" name="loginForm" [formGroup]="loginForm" novalidate (ngSubmit)="login()">
+                        <div class="card-header card-header-primary text-center">
+                            <h4 class="card-title">Log in</h4>
+                            <div class="social-line">
+                                <a class="btn btn-just-icon btn-link" (click)="loginStaffConnect()">
+                                    <i class="fa fa-facebook-square"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#pablo" class="btn btn-just-icon btn-link">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">mail</i>
+                                    </span>
+                                </div>
+
+                                <input type="email" class="form-control" placeholder="Email..." formControlName="email">
+
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="material-icons">lock_outline</i>
+                                    </span>
+                                </div>
+
+                                <input type="password" class="form-control" placeholder="Password..." formControlName="password">
+                                    
+                            </div>
+ 
+                        </div>
+                        <div class="footer text-center">
+                            <button type="submit" class="btn btn btn-primary btn-fill" [disabled]="loginForm.invalid">Get Started</button>
+                        </div>
+                        
+                    </form>
+                    <div class="footer text-center row">
+                        <div class="col-md-12">
+                            <span>Don't you have Account?</span>
+                            <a class="btn btn-primary btn-link" [routerLink]="'/home/signup'">Create Account</a>
+                        </div>
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

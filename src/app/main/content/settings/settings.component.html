@@ -1,0 +1,24 @@
+<div id="settings" class="container-fluid">
+    <div class="row">
+        <div class="col-md-6">
+            <app-settings-signature-pad 
+                [title]="'Draw Signature'"
+                [signdata]="signData"
+                (onSaveSign)="makeDrawSignature($event)">
+            </app-settings-signature-pad>          
+        </div>
+
+        <div class="col-md-6">
+            <app-settings-signature-pad 
+                [title]="'Draw Initial'"
+                [signdata]="initialData"
+                (onSaveSign)="makeDrawInitial($event)">
+            </app-settings-signature-pad>       
+        </div>
+
+        <div class="col-md-6">
+            <app-settings-send-emails>
+            </app-settings-send-emails>
+        </div>
+    </div>
+</div>

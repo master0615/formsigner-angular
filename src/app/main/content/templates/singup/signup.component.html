@@ -1,0 +1,12 @@
+<div id="templates-signup" *ngIf="templateForm">
+    <div class="signup-left col-lg-3 col-md-12">
+        <app-templates-signup-property
+            [templateForm]="templateForm" >
+        </app-templates-signup-property>
+    </div>  
+    <div class="signup-content col-lg-9 col-md-12">
+        <app-templates-signup-content         
+            [templateForm]="templateForm">
+        </app-templates-signup-content>
+    </div>  
+</div>

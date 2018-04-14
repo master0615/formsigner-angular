@@ -1,0 +1,8 @@
+<h4 matDialogTitle class="modal-title">Confirm</h4>
+<div mat-dialog-content class="modal-body">{{confirmMessage}}</div>
+<div mat-dialog-actions class="pt-24">
+    <div class="col-md-12">
+        <button type="button" class="btn btn-primary" (click)="dialogRef.close(true)">Confirm</button>
+        <button type="button" class="btn btn-secondary" (click)="dialogRef.close(false)">Cancel</button>
+    </div>
+</div>

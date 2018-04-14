@@ -1,0 +1,28 @@
+.template-send-emails-dialog {
+        width: 500px;
+        max-width: 500px;
+        min-width: 500px;
+
+    #send-emails-dialog {
+        //min-width: 440px;
+        //max-width: 550px;
+    
+        .ng-select.ng-multiple .ng-control .ng-value-container .ng-value {
+            background-color: #9c27b0;
+        }
+
+        .ng-select.focused .ng-control:after{
+            border-color: #9c27b0;
+        }
+        .ng-select.focused .ng-control .ng-arrow-zone .ng-arrow {
+            color: #9c27b0;
+        }
+        
+        .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.selected {
+            background: rgba(0,0,0,0.12);
+            color: #9c27b0;
+        }
+    }
+
+}
+

@@ -1,0 +1,18 @@
+<nav id="home-toolbar" class="navbar navbar-expand navbar-dark bg-primary flex-column flex-md-row bd-navbar">
+    <div class="navbar-translate">
+        <div>
+            <img src="assets/images/logos/logo_horiz_60.png">
+        </div>
+    </div>
+    <div class="navbar-nav-scroll ml-md-auto">
+        <ul class="navbar-nav bd-navbar-nav flex-row">
+            <li *ngFor="let menu of menus" (click)="clickMenu(menu)" routerLinkActive="active" [class.active]="menu==selectedMenu" class="nav-item">
+                <a class="nav-link" [routerLink]="menu.url">
+                    <i class="material-icons">{{menu.icon}}</i>
+                    {{menu.title}}
+                    <div class="ripple-container"></div>
+                </a>
+            </li>           
+        </ul>
+    </div>
+</nav>

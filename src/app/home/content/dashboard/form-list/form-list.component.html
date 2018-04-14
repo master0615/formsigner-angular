@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-8 ml-auto mr-auto">
+        <h3 class="title">Available Forms</h3>
+    </div>
+</div>
+<div class="features">
+    <div class="row">
+        <div *ngFor="let template of templateForms" class="col-sm-6 col-md-3">
+            <app-home-form-card
+                [template]="template">
+            </app-home-form-card>
+        </div>
+    </div>
+    <button *ngIf="canShowMore()"class="btn btn-primary" (click)="showMore()"><i class="material-icons">add</i> Show More</button>    
+</div>

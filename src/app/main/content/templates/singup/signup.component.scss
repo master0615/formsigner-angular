@@ -1,0 +1,32 @@
+:host {
+    #templates-signup {
+        display: flex;
+        .signup-left{
+            // width: 300px;
+            // position: fixed;
+            // top: 100px;
+            // left: 10px;
+            // height: calc(100vh - 120px);
+        }
+        .signup-content{
+            //padding-left: 320px;
+            //width: calc(100% - 20px);
+            overflow: auto;
+            height: calc(100vh - 20px);
+        }
+    }
+
+    @media (max-width: 991px) { 
+        #templates-signup {
+            display: block;
+            .signup-left,
+            .signup-content{
+                // padding:0 10px;                
+                // width: 100%;
+                // height:100%;
+                // position: initial;
+                display: block;           
+            }
+        }
+    }
+}

@@ -1,0 +1,116 @@
+<div id="templates-signup-field" 
+    [class.mantdatory]="field.is_mandatory"> 
+    <!--- Form data for builder -->
+    <input *ngIf="field.type==FormFieldType.DATA_TEXT" 
+        #inputEl
+        class="drag-text-field"
+        [placeholder]="field.name"
+        [(ngModel)]="field.value" 
+        maxlength="{{field.length}}"/>
+
+    <textarea *ngIf="field.type==FormFieldType.DATA_TEXT_BOX" 
+        #textEl
+        class="drag-textarea-field"
+        [placeholder]="field.name"
+        maxlength="{{field.length}}"        
+        [(ngModel)]="field.value"></textarea>
+
+    <div *ngIf="field.type==FormFieldType.DATA_DATE" class="drag-date-field" FlexLayout="row" fxLayoutAlign="space-between center">
+        <div>
+            <input 
+                #dateEl 
+                [ngModel]="setStringAsDateFormat(field)" 
+                class="drag-date-field-input" 
+                [placeholder]="field.name" >
+            <input 
+                [owlDateTimeTrigger]="ddt"
+                [owlDateTime]="ddt"
+                readonly
+                class="drag-date-field-hidden"
+                [(ngModel)]="field.value" >
+            </div>
+        <div class="date-trigger">
+            <span class="trigger" [owlDateTimeTrigger]="ddt">
+                <i class="material-icons">today</i>
+            </span>
+            <owl-date-time #ddt [pickerType]="setDtPickerType(field.date_format)"></owl-date-time>  
+        </div>
+   
+    </div>
+
+    <mat-checkbox
+        *ngIf="field.type==FormFieldType.DATA_CHECK_BOX" 
+        #checkboxEl
+        class="drag-checkbox-field"
+        [(ngModel)]= "field.value"    
+        [disableRipple]="'true'"
+        (change)="changeCheckbox($event)">
+    </mat-checkbox>
+
+    <mat-radio-group 
+        *ngIf="field.type==FormFieldType.DATA_RADIO"
+        [(ngModel)]="field.value">
+        <mat-radio-button            
+            #radioEl
+            class="drag-checkbox-field"
+            [value]="'1'"
+            (click)="clickRadio()"
+            [disableRipple]="'true'">
+        </mat-radio-button>
+    </mat-radio-group>
+
+    <mat-select 
+        *ngIf="field.type==FormFieldType.DATA_SELECT" 
+        #selectEl
+        class="drag-select-field"
+        [(ngModel)]="field.value"        
+        [placeholder]="field.name" >
+        <mat-option *ngFor="let option of getSelectOptionsFromField(field)" [value]="option">{{option}}</mat-option>
+    </mat-select>        
+    <!--- /Form data for builder -->
+
+    <!--- Form sign data for builder -->
+    <div class="drag-draw-div" 
+        *ngIf="field.type==FormFieldType.SIGN_INITIAL" 
+        (click)="clickSignInitial(field)">
+        <img class="drag-draw-sign-field" 
+        *ngIf="field.sign_path" 
+        [src]="field.sign_path"
+        (load)="getImageData($event, field)">
+        <!-- <p *ngIf="!field.sign_path">Add your initial</p> -->
+    </div>
+
+    <div class="drag-draw-div"  
+        *ngIf="field.type==FormFieldType.SIGN_DRAW" 
+        (click)="clickSignDraw(field)">
+        <img class="drag-daw-initial-field" 
+        *ngIf="field.sign_path" 
+        [src]="field.sign_path"
+        (load)="getImageData($event, field)">
+        <!-- <p *ngIf="!field.sign_path">Add your sign</p> -->
+    </div>
+
+    <input *ngIf="field.type==FormFieldType.SIGN_NAME" 
+        #signNameEl
+        class="drag-text-field"
+        [(placeholder)]="field.name"
+        [(ngModel)]="field.value" />
+
+    <input *ngIf="field.type==FormFieldType.SIGN_EMAIL" 
+        #signEmailEl
+        type="email"
+        readonly
+        class="drag-text-field"
+        [placeholder]="field.name"
+        [(ngModel)]="field.value" />
+            
+
+    <div *ngIf="field.type==FormFieldType.SIGN_DATE" class="drag-date-field">
+        <input 
+            #signDateEl 
+            readonly
+            [ngModel]="setStringAsDateFormat(field)" 
+            class="drag-date-field-input" 
+            [(placeholder)]="field.name" >
+    </div>
+</div>

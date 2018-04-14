@@ -1,0 +1,30 @@
+:host{
+    position: relative;
+    #templates-edit-property{
+        //position: fixed;
+        .card-body{
+            padding:10px;
+            width: 100%;
+        }
+        .toolbox{
+            //padding-top:20px;
+            label{
+                color: black;
+            }
+            .groups-item{
+                border-bottom: 1px solid #3C4858;
+            }
+            .fields-item{
+                width:100%;
+                //padding:5px 5px;
+                cursor: pointer;
+                border-radius: 4px;
+                user-select: none;
+            }
+            .fields-item:hover{
+                background-color: silver;
+                //color:white;
+            }
+        }
+    }
+}

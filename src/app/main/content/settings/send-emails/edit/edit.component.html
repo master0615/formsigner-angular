@@ -1,0 +1,30 @@
+<div 
+    fxFlex="1 0 auto"
+    *ngIf="!formActive"
+    class="send-email-edit ml-8"
+    [class.disabled]="!email.id"
+    (click)="openForm()">
+    <span class="email-address">{{email.email}}</span>
+</div>
+
+<form 
+    [formGroup]="form" 
+    (ngSubmit)="onFormSubmit()" 
+    class="send-email-edit-form" 
+    fxLayout="row" 
+    fxFlex="1 0 auto" 
+    *ngIf="formActive">
+
+    <div class="input-group" floatPlaceholder="never" fxFlexLayout="start center">
+        <input  formControlName="email" #emailInput fxFlex placeholder="Write a Emailt Address" class="px-8 form-control" required>
+    </div>
+
+    <button type="submit" class="close">
+        <mat-icon>check</mat-icon>
+    </button>
+
+    <button type="button" class="close" (click)="closeForm()" type="button">
+        <mat-icon>close</mat-icon>
+    </button>
+    
+</form>

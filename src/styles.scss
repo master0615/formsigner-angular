@@ -1,0 +1,17 @@
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import "app/styles/material";
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+//@import "assets/scss/material-kit/material-kit";
+//@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "~@ng-select/ng-select/themes/material.theme.css";
+html {
+	//font-family: Roboto,Helvetica Neue,Arial,sans-serif;
+	line-height: 1.4!important;
+	letter-spacing: -.1px!important;
+}
+body{
+	margin:0;
+	//background-color: white;
+}

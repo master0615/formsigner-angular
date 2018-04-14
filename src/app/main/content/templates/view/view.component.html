@@ -1,0 +1,12 @@
+<div id="templates-view" *ngIf="templateForm">
+        <div class="view-left col-lg-3 col-md-12">
+            <app-templates-view-property
+                [templateForm]="templateForm" >
+            </app-templates-view-property>
+        </div>  
+        <div class="view-content col-lg-9 col-md-12">
+            <app-templates-view-content         
+                [templateForm]="templateForm">
+            </app-templates-view-content>
+        </div>  
+    </div>

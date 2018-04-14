@@ -1,0 +1,20 @@
+<div id="property-date" class="property-group">
+    <div class="card-title" role="tab" id="date-property-card">
+        <div class="mb-0 groups-item" FlexLayout="row" fxLayoutAlign="space-around center">
+            <a data-toggle="collapse" href="#date-property" aria-expanded="true" aria-controls="collapseOne">
+                Date Time Property
+                <i class="material-icons">keyboard_arrow_down</i>
+            </a>
+        </div>
+    </div>
+    <div id="date-property" class="collapse show" role="tabpanel" aria-labelledby="checkbox-property-card">
+        <div class="form-group">
+            <label for="select_dateFormat">Date Format</label>
+            <mat-select [(value)]="selectedField.date_format">
+                <ng-container *ngFor="let dateformat of datetimeFormats">
+                    <mat-option [value]="dateformat">{{dateformat}}</mat-option>
+                </ng-container>
+            </mat-select>
+        </div>
+    </div>                                               
+</div>

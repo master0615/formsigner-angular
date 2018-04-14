@@ -1,0 +1,34 @@
+<div id="templates-edit-toolbox">
+    <div class="card card-nav-tabs">
+        <div class="card-header card-header-primary">
+                ToolBox
+        </div>
+        <div class="card-body">
+            <div class="toolbox">
+                <div *ngFor="let group of fieldGroupTypes" class="card card-collapse">
+                    <div class="card-title" role="tab" id="toolbox_card">
+                        <div class="mb-0 groups-item" FlexLayout="row" fxLayoutAlign="space-around center">
+                            <a data-toggle="collapse" href="#{{group.value}}" aria-expanded="true" aria-controls="collapseOne">
+                                {{group.label}}
+                                <i class="material-icons">keyboard_arrow_down</i>
+                            </a>
+                        </div>
+                    </div>
+                    <div [id]="group.value" class="collapse show" role="tabpanel" aria-labelledby="toolbox_card">
+                        <div
+                        class="fields-item"
+                        *ngFor="let field of getGroupFields(group)" 
+                        matTooltip="{{field.tooltip}}" 
+                        [matTooltipPosition]="'right'"
+                        FlexLayout="row" 
+                        fxLayoutAlign="space-between center"
+                        (click)="addField(field)">
+                            <span>{{field.label}}</span>
+                            <i class="material-icons">{{field.icon}}</i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

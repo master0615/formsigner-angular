@@ -1,0 +1,26 @@
+:host{
+    position: relative;
+    #templates-edit-property-form{
+        label{
+            color: black;
+        }
+        .form-btton{
+            width: 100%;
+        }
+        .btn-group{
+            width: 100%;
+            .dropdown-item:hover{
+                color:white;
+            }
+        }
+        .groups-item{
+            border-bottom: 1px solid #3C4858;
+        }
+        .property-group{
+            padding:10px;
+            border-radius: 4px;
+            border: 1px solid #AEAEAE;
+            margin-bottom: 20px;
+        }
+    }
+}
